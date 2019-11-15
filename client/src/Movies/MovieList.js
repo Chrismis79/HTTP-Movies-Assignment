@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
+// import AddMovie from './AddMovie';
+
 
 
 export default class MovieList extends Component {
@@ -19,14 +21,27 @@ export default class MovieList extends Component {
       .get("http://localhost:5000/api/movies")
       .then(res => { 
         this.setState({ movies: res.data });
-        this.props.setMovies( res.data )
+        
       })
       .catch(err => console.log(err.response));
   }
+
+  // addMovie = newMovie => {
+    
+  //   axios
+  //     .post("http://localhost:5000/api/movies", newMovie)
+  //     .then(response => {
+  //       console.log( "post", response)
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
   
   render() {
     return (
       <div className="movie-list">
+        {/* <AddMovie addMovie={this.props.addMovie} /> */}
         {this.state.movies.map(movie => (
           <MovieDetails key={movie.id} movie={movie} />
         ))}

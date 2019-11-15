@@ -30,7 +30,7 @@ const UpdateMovie = props => {
                 setMovie(res.data);
             })
             .catch(err => console.log(err.response));
-    }, [])
+    }, [id])
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -78,7 +78,7 @@ const UpdateMovie = props => {
             <div className="baseline" />
 
             <input
-          type="string"
+          type="text"
           name="stars"
           onChange={changeHandler}
           placeholder="Stars"
